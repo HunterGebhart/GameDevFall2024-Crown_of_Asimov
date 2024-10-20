@@ -12868,6 +12868,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1601032669370114287, guid: 7f47c540f58532045989cd53b139927d,
         type: 3}
+      propertyPath: _DitheringScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1601032669370114287, guid: 7f47c540f58532045989cd53b139927d,
+        type: 3}
       propertyPath: _PixelationFactor
       value: 0.45
       objectReference: {fileID: 0}
