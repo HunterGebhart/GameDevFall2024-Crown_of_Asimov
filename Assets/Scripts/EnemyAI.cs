@@ -9,15 +9,22 @@ public class PathfindingAI : MonoBehaviour
 
     private NavMeshAgent agent;
 
+    EnemyProjectile enemyProjectile;
+
     public float activationDistance = 10f;
     public float attackDistance = 10f;
+    public float shootingCooldown = 3f;
 
     public bool activated = false;
+
+    private float startTime = 0;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        enemyProjectile = GetComponent<EnemyProjectile>();
     }
 
     // Update is called once per frame
@@ -44,6 +51,7 @@ public class PathfindingAI : MonoBehaviour
                 agent.isStopped = false;
                 Debug.Log("Moving!");
                 agent.destination = player.position;
+                
             }
         }
 
@@ -61,8 +69,18 @@ public class PathfindingAI : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 0.2f);
     }
 
-    void AttackPlayer()
+    private void AttackPlayer()
     {
-        Debug.Log("Attacking!");
+        if(startTime == 0)
+        {
+            Debug.Log("StartTime!");
+            startTime = Time.time;
+        }
+        if(Time.time > startTime + shootingCooldown)
+        {
+            Debug.Log("Shooting!");
+            enemyProjectile.Shoot();
+            startTime = 0;
+        }
     }
 }
