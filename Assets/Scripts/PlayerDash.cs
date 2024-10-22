@@ -2,8 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/* Default values:
+ * dashspeed = 2f;
+ * dashTime = 0.1f;
+ * cooldownTime = 1f;
+ * rayDistance = 2f;
+ */
+
 public class DashMechanic : MonoBehaviour
 {
+    public Camera playerCam;
+
     public LayerMask wallMask;
 
     private RaycastHit hit;
@@ -13,7 +22,14 @@ public class DashMechanic : MonoBehaviour
     public float cooldownTime = 1.0f;
     public float rayDistance = 1.75f;
 
+    private float startingFOV; 
+
     bool canDash = true;
+
+    void Start() 
+    {
+        startingFOV = playerCam.fieldOfView;
+    }
 
     // Update is called once per frame
     void Update()
@@ -64,7 +80,6 @@ public class DashMechanic : MonoBehaviour
     IEnumerator Dash(int directionCode)
     {
         canDash = false;
-        
 
         //Dash left
         if(directionCode == 0)
@@ -82,10 +97,15 @@ public class DashMechanic : MonoBehaviour
                     //Debug.Log("No Collision!");
                     transform.Translate(Vector3.right * dashSpeed * -1);
                 }
-                //else Debug.Log("Collision!");
+                else 
+                {
+                    startTime -= 100f;
+                    //Debug.Log("Collision!");
+                }
 
                 yield return null;
             }
+            
         }
         //Dash right
         if(directionCode == 2)
@@ -103,7 +123,11 @@ public class DashMechanic : MonoBehaviour
                     //Debug.Log("No Collision!");
                     transform.Translate(Vector3.right * dashSpeed);
                 }
-                //else Debug.Log("Collision!");
+                else 
+                {
+                    startTime -= 100f;
+                    //Debug.Log("Collision!");
+                }
                 
                 yield return null;
             }
@@ -125,7 +149,11 @@ public class DashMechanic : MonoBehaviour
                     //Debug.Log("No Collision!");
                     transform.Translate(Vector3.forward * dashSpeed);
                 }
-                //else Debug.Log("Collision!");
+                else
+                {
+                    startTime -= 100f;
+                    //Debug.Log("Collision!");
+                } 
 
                 yield return null;
             }
@@ -147,13 +175,17 @@ public class DashMechanic : MonoBehaviour
                     //Debug.Log("No Collision!");
                     transform.Translate(Vector3.forward * dashSpeed * -1);
                 }
-                //else Debug.Log("Collision!");
+                else 
+                { 
+                    startTime -= 100f;
+                    //Debug.Log("Collision!");
+                }
 
                 yield return null;
             }
         }
 
-        //dash cooldown for 2.5 seconds
+        //dash cooldown
         yield return new WaitForSeconds(cooldownTime);
 
         canDash = true;

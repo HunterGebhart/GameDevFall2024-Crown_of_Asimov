@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3809297333383378681}
   - component: {fileID: 6756647320670522401}
   - component: {fileID: 4834500527344411000}
+  - component: {fileID: 2546889217037865802}
   m_Layer: 0
   m_Name: Liquid_reservoir_1
   m_TagString: Untagged
@@ -106,3 +107,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6836187179189872124, guid: fdab5a729babf74489b2249d45123cb4, type: 3}
+--- !u!208 &2546889217037865802
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7726348692368844394}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 5.8, y: 3.209, z: 5.8}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 3.1360002, z: 0}
+  m_TimeToStationary: 0.5

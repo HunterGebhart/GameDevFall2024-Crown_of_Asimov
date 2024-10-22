@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5736993458388094677}
   - component: {fileID: 561938217201852135}
   - component: {fileID: 7970296966475371836}
+  - component: {fileID: 3115811714078525851}
   m_Layer: 0
   m_Name: Bridges_3
   m_TagString: Untagged
@@ -106,3 +107,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5247430808573203769, guid: fdab5a729babf74489b2249d45123cb4, type: 3}
+--- !u!65 &3115811714078525851
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443577308525185946}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.0967958, y: 4.8939967, z: 0.36049557}
+  m_Center: {x: 3.1493108e-16, y: 2.1770217, z: -0.009849469}
