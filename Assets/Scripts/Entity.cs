@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
+    public GameObject enemyManager;
     [SerializeField] private float startingHealth;
 
     private float health;
@@ -21,9 +22,14 @@ public class Entity : MonoBehaviour
 
             if(health <= 0f)
             {
+                enemyManager.GetComponent<EnemyManager>().NumEnemies -= 1;
                 Destroy(gameObject);
             }
         }
+    }
+    void Awake()
+    {
+
     }
 
     // Start is called before the first frame update

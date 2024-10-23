@@ -56,7 +56,7 @@ Transform:
   m_GameObject: {fileID: 6235280010008248361}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.0000006556511}
-  m_LocalPosition: {x: 1.7, y: 87.7, z: 81.3}
+  m_LocalPosition: {x: 1.7, y: 135, z: 50.5}
   m_LocalScale: {x: 66.66667, y: 66.66667, z: 66.66667}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -73,22 +73,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.015
+      value: 0.018
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.015
+      value: 0.018
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.015
+      value: 0.018
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.503033
+      value: -26.996967
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
@@ -98,7 +98,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 70.0887
+      value: 51.0887
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fcb8f1157127e34b8e15dc506adbe77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyManager: {fileID: 0}
   startingHealth: 2
 --- !u!136 &-191973718841907727
 CapsuleCollider:

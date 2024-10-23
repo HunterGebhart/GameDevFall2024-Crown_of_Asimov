@@ -16,6 +16,7 @@ public class PathfindingAI : MonoBehaviour
     public float shootingCooldown = 3f;
 
     public bool activated = false;
+    public bool triggeredByRoom = false;
 
     private float startTime = 0;
     
@@ -25,13 +26,16 @@ public class PathfindingAI : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         enemyProjectile = GetComponent<EnemyProjectile>();
+
+        if(triggeredByRoom)
+        {
+            
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        float originalSpeed = agent.speed;
-        
         bool inShootingRange = Vector3.Distance(transform.position, player.position) <= attackDistance;
         bool inActivationRange = Vector3.Distance(transform.position, player.position) <= activationDistance;
     
@@ -49,7 +53,7 @@ public class PathfindingAI : MonoBehaviour
             else
             {
                 agent.isStopped = false;
-                Debug.Log("Moving!");
+                //Debug.Log("Moving!");
                 agent.destination = player.position;
                 
             }
@@ -73,12 +77,12 @@ public class PathfindingAI : MonoBehaviour
     {
         if(startTime == 0)
         {
-            Debug.Log("StartTime!");
+            //Debug.Log("StartTime!");
             startTime = Time.time;
         }
         if(Time.time > startTime + shootingCooldown)
         {
-            Debug.Log("Shooting!");
+            //Debug.Log("Shooting!");
             enemyProjectile.Shoot();
             startTime = 0;
         }
