@@ -2,36 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/* Default values:
- * dashspeed = 2f;
- * dashTime = 0.1f;
- * cooldownTime = 1f;
- * rayDistance = 2f;
- */
-
 public class DashMechanic : MonoBehaviour
 {
-    public Camera playerCam;
-
-    public LayerMask wallMask;
+    [Header("Object References")]
+    [SerializeField] Camera playerCam;
+    [SerializeField] LayerMask wallMask;
 
     private RaycastHit hit;
 
-    public float dashSpeed = 1f;
-    public float dashTime = 0.25f;
-    public float cooldownTime = 1.0f;
-    public float rayDistance = 1.75f;
+    [Header("Dash Attributes")]
+    [SerializeField] float dashSpeed = 1f;
+    [SerializeField] float dashTime = 0.25f;
+    [SerializeField] float cooldownTime = 1.0f;
+    [SerializeField] float rayDistance = 1.75f;
 
     private float startingFOV; 
 
-    bool canDash = true;
+    private bool canDash = true;
 
     void Start() 
     {
         startingFOV = playerCam.fieldOfView;
     }
 
-    // Update is called once per frame
     void Update()
     {
         //Handles dashing
@@ -90,17 +83,13 @@ public class DashMechanic : MonoBehaviour
             {
                 RaycastHit hit;
 
-                // Does the ray intersect any objects excluding the player layer
                 if (!Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right * -1), out hit, rayDistance, wallMask))
                 {
-                    //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-                    //Debug.Log("No Collision!");
                     transform.Translate(Vector3.right * dashSpeed * -1);
                 }
                 else 
                 {
                     startTime -= 100f;
-                    //Debug.Log("Collision!");
                 }
 
                 yield return null;
@@ -116,17 +105,13 @@ public class DashMechanic : MonoBehaviour
             {
                 RaycastHit hit;
 
-                // Does the ray intersect any objects excluding the player layer
                 if (!Physics.Raycast(transform.position, transform.TransformDirection(Vector3.right), out hit, rayDistance, wallMask))
                 {
-                    //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-                    //Debug.Log("No Collision!");
                     transform.Translate(Vector3.right * dashSpeed);
                 }
                 else 
                 {
                     startTime -= 100f;
-                    //Debug.Log("Collision!");
                 }
                 
                 yield return null;
@@ -142,17 +127,13 @@ public class DashMechanic : MonoBehaviour
             {
                 RaycastHit hit;
 
-                // Does the ray intersect any objects excluding the player layer
                 if (!Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, rayDistance, wallMask))
                 {
-                    //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-                    //Debug.Log("No Collision!");
                     transform.Translate(Vector3.forward * dashSpeed);
                 }
                 else
                 {
                     startTime -= 100f;
-                    //Debug.Log("Collision!");
                 } 
 
                 yield return null;
@@ -168,24 +149,19 @@ public class DashMechanic : MonoBehaviour
             {
                 RaycastHit hit;
 
-                // Does the ray intersect any objects excluding the player layer
                 if (!Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward * -1), out hit, rayDistance, wallMask))
                 {
-                    //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
-                    //Debug.Log("No Collision!");
                     transform.Translate(Vector3.forward * dashSpeed * -1);
                 }
                 else 
                 { 
                     startTime -= 100f;
-                    //Debug.Log("Collision!");
                 }
 
                 yield return null;
             }
         }
 
-        //dash cooldown
         yield return new WaitForSeconds(cooldownTime);
 
         canDash = true;

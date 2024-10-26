@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
-    public float mouseSensitivity = 100f;
+    [Header("Object References")]
+    [SerializeField] Transform playerBody;
 
-    public Transform playerBody;
+    [Header("Camera Attributes")]
+    [SerializeField] float mouseSensitivity = 100f;
 
-    float xRotation = 0f;
+    private float xRotation = 0f;
 
     void Start()
     {
@@ -17,7 +19,6 @@ public class PlayerCamera : MonoBehaviour
         Cursor.visible = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
@@ -28,7 +29,5 @@ public class PlayerCamera : MonoBehaviour
 
         transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
-
-    
     }
 }

@@ -88,7 +88,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.503033
+      value: -26.996967
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
@@ -98,7 +98,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 70.0887
+      value: 51.0887
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
@@ -238,6 +238,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyManager: {fileID: 0}
+  revolver: {fileID: 0}
   startingHealth: 2
 --- !u!136 &-191973718841907727
 CapsuleCollider:
@@ -297,11 +298,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
+  headLocation: {fileID: 5649022643513089698}
   activationDistance: 50
   attackDistance: 30
   shootingCooldown: 1
+  sightDistance: 50
   activated: 0
-  triggeredByRoom: 0
 --- !u!114 &2549876718132649329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,13 +317,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1635782671592279649, guid: cca7424010c299b489df377b3a0f74b4, type: 3}
-  shootForce: 20
-  upwardForce: 0
-  spread: 1
-  bulletDespawnTime: 10
   attackPoint: {fileID: 2571108519641847490}
   headLocation: {fileID: 5649022643513089698}
   player: {fileID: 0}
+  shootForce: 25
+  upwardForce: 0
+  spread: 1
+  bulletDespawnTime: 10
 --- !u!4 &4607323831737770872 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,

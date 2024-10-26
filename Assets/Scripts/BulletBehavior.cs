@@ -5,19 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class BulletBehavior : MonoBehaviour
 {
-    public float bulletDespawnTime;
-    public int loseSceneNumber;
+    [Header("Bullet Settings")]
+    [SerializeField] float bulletDespawnTime;
+    [SerializeField] int sceneNumber;
     
-    // Start is called before the first frame update
     void Start()
     {
-        Destroy(this.gameObject, bulletDespawnTime);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Destroy(gameObject, bulletDespawnTime);
     }
 
     void OnTriggerEnter(Collider other)
@@ -27,8 +21,10 @@ public class BulletBehavior : MonoBehaviour
             
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+
             Destroy(gameObject);
-            SceneManager.LoadScene(loseSceneNumber);
+
+            SceneManager.LoadScene(sceneNumber);
         }
         else
         {

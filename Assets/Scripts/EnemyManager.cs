@@ -1,12 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public GameObject levelCollider;
+    [Header("Object References")]
+    [SerializeField] GameObject levelCollider;
+    [SerializeField] GameObject worldAudioManager;
 
-    public int numEnemies;
+    [Header("Enemy Management")]
+    [SerializeField] int numEnemies;
+
+    [Header("Booleans")]
+    [SerializeField] public bool inCombat = false;
 
     public int NumEnemies
     {
@@ -17,7 +24,6 @@ public class EnemyManager : MonoBehaviour
         set
         {
             numEnemies = value;
-            Debug.Log(numEnemies);
 
             if(numEnemies <= 0f)
             {
@@ -26,26 +32,15 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    void Awake()
-    {
-
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     void action()
     {
-        Debug.Log("Level Complete!");
+        worldAudioManager.GetComponent<AudioManager>().PlayAmbience();
         levelCollider.GetComponent<NextLevelLoader>().makeActive();
+    }
+
+    public void SetCombat()
+    {
+        inCombat = true;
+        worldAudioManager.GetComponent<AudioManager>().PlayCombatMusic();
     }
 }

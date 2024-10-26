@@ -4,7 +4,11 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    public GameObject enemyManager;
+    [Header("Object References")]
+    [SerializeField] public GameObject enemyManager;
+    [SerializeField] GameObject revolver;
+
+    [Header("Entity Attributes")]
     [SerializeField] private float startingHealth;
 
     private float health;
@@ -18,21 +22,16 @@ public class Entity : MonoBehaviour
         set
         {
             health = value;
-            //Debug.Log(health);
 
             if(health <= 0f)
             {
+                //revolver.GetComponent<PlayerGun>().CurrAmmo += (int)startingHealth;
                 enemyManager.GetComponent<EnemyManager>().NumEnemies -= 1;
                 Destroy(gameObject);
             }
         }
     }
-    void Awake()
-    {
 
-    }
-
-    // Start is called before the first frame update
     void Start()
     {
         Health = startingHealth;

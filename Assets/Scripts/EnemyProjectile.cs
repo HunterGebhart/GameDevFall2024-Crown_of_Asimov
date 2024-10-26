@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class EnemyProjectile : MonoBehaviour
 {
-    //bullet 
-    public GameObject bullet;
+    [Header("Object References")]
+    [SerializeField] GameObject bullet;
 
-    //bullet force
-    public float shootForce, upwardForce, spread, bulletDespawnTime;
+    [Header("Location Points")]
+    [SerializeField] Transform attackPoint;
+    [SerializeField] Transform headLocation; 
+    [SerializeField] Transform player;
 
-  
-
-    //Reference
-    //public Camera fpsCam;
-    public Transform attackPoint, headLocation, player;
-
-    //Graphics
-    //public GameObject muzzleFlash;
+    [Header("Projectile Attributes")]
+    [SerializeField] float shootForce;
+    [SerializeField] float upwardForce;
+    [SerializeField] float spread;
+    [SerializeField] float bulletDespawnTime;
 
     public void Shoot()
     {
@@ -50,12 +49,5 @@ public class EnemyProjectile : MonoBehaviour
         //Add forces to bullet
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(headLocation.transform.up * upwardForce, ForceMode.Impulse);
-
-        //Instantiate muzzle flash, if you have one
-       // if (muzzleFlash != null)
-          //  Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
-
-
-
     }
 }

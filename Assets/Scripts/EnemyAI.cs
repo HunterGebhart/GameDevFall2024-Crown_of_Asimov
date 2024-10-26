@@ -5,64 +5,72 @@ using UnityEngine.AI;
 
 public class PathfindingAI : MonoBehaviour
 {
-    public Transform player;
+    [Header("Object References")]
+    [SerializeField] Transform player;
+    [SerializeField] Transform headLocation;
 
     private NavMeshAgent agent;
 
-    EnemyProjectile enemyProjectile;
+    private EnemyProjectile enemyProjectile;
 
-    public float activationDistance = 10f;
-    public float attackDistance = 10f;
-    public float shootingCooldown = 3f;
+    private Ray sightRay;
 
-    public bool activated = false;
-    public bool triggeredByRoom = false;
+    [Header("AI Attributes")]
+    [SerializeField] float activationDistance = 10f;
+    [SerializeField] float attackDistance = 10f;
+    [SerializeField] float shootingCooldown = 3f;
+    [SerializeField] float sightDistance = 100f;
+
+    [Header("Activation Settings")]
+    [SerializeField] bool activated = false;
+    //[SerializeField] bool triggeredByRoom = false;
 
     private float startTime = 0;
     
-
-    // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         enemyProjectile = GetComponent<EnemyProjectile>();
-
-        if(triggeredByRoom)
-        {
-            
-        }
     }
 
-    // Update is called once per frame
     void Update()
     {
+        RaycastHit hit;
+
+        sightRay = new Ray(headLocation.transform.position, player.transform.position - transform.position - new Vector3(0,2,0));
+
         bool inShootingRange = Vector3.Distance(transform.position, player.position) <= attackDistance;
         bool inActivationRange = Vector3.Distance(transform.position, player.position) <= activationDistance;
     
-        if(inActivationRange)
+        if(inActivationRange && Physics.Raycast(sightRay, out hit, sightDistance) && hit.collider.CompareTag("Player"))
         {
             activated = true;
         }
+
         if(activated)
         {
-            if(inShootingRange)
+            if(gameObject.GetComponent<Entity>().enemyManager.GetComponent<EnemyManager>().inCombat != true)
+            {
+                gameObject.GetComponent<Entity>().enemyManager.GetComponent<EnemyManager>().SetCombat();
+            }
+            
+            if(inShootingRange && Physics.Raycast(sightRay, out hit, sightDistance) && hit.collider.CompareTag("Player"))
             {
                 agent.isStopped = true;
                 AttackPlayer();
             }
+
             else
             {
                 agent.isStopped = false;
-                //Debug.Log("Moving!");
                 agent.destination = player.position;
-                
             }
-        }
 
-        LookAtPlayer();
+            LookAtPlayer();
+        }
     }
 
-    void LookAtPlayer()
+    private void LookAtPlayer()
     {
         Vector3 lookPos = player.position - transform.position;
 
@@ -77,12 +85,10 @@ public class PathfindingAI : MonoBehaviour
     {
         if(startTime == 0)
         {
-            //Debug.Log("StartTime!");
             startTime = Time.time;
         }
         if(Time.time > startTime + shootingCooldown)
         {
-            //Debug.Log("Shooting!");
             enemyProjectile.Shoot();
             startTime = 0;
         }
