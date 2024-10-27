@@ -44,12 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a4c69f7a9d3ea43907b5765229dc85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _TextureWarpingFactor: 1
+  _TextureWarpingFactor: 0.6
   _TextureWarpingMode: 0
-  _VertexGridResolution: 45
+  _VertexGridResolution: 30
   _VertexWobbleMode: 1
   _UseRetroVertexLighting: 1
-  _RetroLightingNormalFactor: 0.8
+  _RetroLightingNormalFactor: 0.9
   _RetroLightFalloffStart: 0
   _FlatShadingMode: 0
   _TriangleSortMode: 0

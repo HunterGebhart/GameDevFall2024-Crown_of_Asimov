@@ -45,4 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelCollider: {fileID: 0}
-  numEnemies: 4
+  worldAudioManager: {fileID: 0}
+  numEnemies: 8
+  inCombat: 0

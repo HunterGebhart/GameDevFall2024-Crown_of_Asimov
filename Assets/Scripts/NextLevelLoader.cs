@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class NextLevelLoader : MonoBehaviour
 {
     [SerializeField] int sceneNumber;
-    [SerializeField] new Light light;
+    [SerializeField] Light light;
     
     void Awake()
     {

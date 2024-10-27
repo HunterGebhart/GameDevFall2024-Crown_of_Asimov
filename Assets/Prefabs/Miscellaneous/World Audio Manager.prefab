@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7979385697522905006}
   - component: {fileID: 8406436195905404110}
   - component: {fileID: 6779153089729901986}
+  - component: {fileID: 5127799791948672817}
   m_Layer: 0
   m_Name: World Audio Manager
   m_TagString: Untagged
@@ -44,8 +45,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 3183843157638456153, guid: a19349a0b86543748b5ea2b07831c80e,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: a7e7db6f7273e2a49ae4ca975008e423, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 1f61e3912b3b10f4d840d14c1e7bd1eb, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -55,7 +56,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 9999
+  MaxDistance: 999
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -142,17 +143,17 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -5886676041986874605, guid: a19349a0b86543748b5ea2b07831c80e,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: a543849eeb4e8aa40ae9e73da28e02e0, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 9999
+  MaxDistance: 999
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -227,3 +228,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5127799791948672817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4108676585805435085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc1205186f4b77a418a68f94bb0bfae2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatMusic: {fileID: 8406436195905404110}
+  ambience: {fileID: 6779153089729901986}

@@ -88,7 +88,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26.996967
+      value: 35.503033
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
@@ -98,7 +98,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 51.0887
+      value: 70.0887
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
@@ -300,8 +300,8 @@ MonoBehaviour:
   player: {fileID: 0}
   headLocation: {fileID: 5649022643513089698}
   activationDistance: 50
-  attackDistance: 30
-  shootingCooldown: 1
+  attackDistance: 35
+  shootingCooldown: 0.5
   sightDistance: 50
   activated: 0
 --- !u!114 &2549876718132649329
@@ -322,7 +322,7 @@ MonoBehaviour:
   player: {fileID: 0}
   shootForce: 25
   upwardForce: 0
-  spread: 1
+  spread: 2
   bulletDespawnTime: 10
 --- !u!4 &4607323831737770872 stripped
 Transform:
