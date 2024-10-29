@@ -11,32 +11,32 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 284b33305dfd2994188c94b0ffb31749,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.01
+      value: 0.013166999
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 284b33305dfd2994188c94b0ffb31749,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.01
+      value: 0.013166999
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 284b33305dfd2994188c94b0ffb31749,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.01
+      value: 0.013166999
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 284b33305dfd2994188c94b0ffb31749,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.505767
+      value: 16.341
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 284b33305dfd2994188c94b0ffb31749,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.046429873
+      value: 0.17837
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 284b33305dfd2994188c94b0ffb31749,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 96.976524
+      value: 94.785
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 284b33305dfd2994188c94b0ffb31749,
         type: 3}
@@ -133,6 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fcb8f1157127e34b8e15dc506adbe77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyManager: {fileID: 0}
+  revolver: {fileID: 0}
   startingHealth: 1
 --- !u!54 &-4216386231525474941
 Rigidbody:

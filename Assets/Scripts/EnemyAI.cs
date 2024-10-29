@@ -25,6 +25,10 @@ public class PathfindingAI : MonoBehaviour
     [SerializeField] bool activated = false;
     //[SerializeField] bool triggeredByRoom = false;
 
+    [Header("AI Classification")]
+    [SerializeField] bool hasRangedAttacks = false;
+    [SerializeField] bool hasMeleeAttacks = false;
+
     private float startTime = 0;
     
     void Start()
@@ -90,8 +94,15 @@ public class PathfindingAI : MonoBehaviour
         }
         if(Time.time > startTime + shootingCooldown)
         {
-            enemyProjectile.Shoot();
-            startTime = 0;
+            if(hasRangedAttacks)
+            {
+                enemyProjectile.Shoot();
+                startTime = 0;
+            }
+            if(hasMeleeAttacks)
+            {
+                startTime = 0;
+            }
         }
     }
 }

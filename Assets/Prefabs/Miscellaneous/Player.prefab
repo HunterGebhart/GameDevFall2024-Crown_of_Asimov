@@ -127,6 +127,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1405586075998637356, guid: 6e265077a12445443810ed670445ae3d,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1405586075998637356, guid: 6e265077a12445443810ed670445ae3d,
+        type: 3}
       propertyPath: m_ReceiveShadows
       value: 0
       objectReference: {fileID: 0}
@@ -385,17 +390,42 @@ PrefabInstance:
     - target: {fileID: 3949552872448889627, guid: 16fea010ed3715c42890fba9b9ba2da9,
         type: 3}
       propertyPath: mouseSensitivity
-      value: 100
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 4620950846874945370, guid: 16fea010ed3715c42890fba9b9ba2da9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5
+      value: 0.537
       objectReference: {fileID: 0}
     - target: {fileID: 4620950846874945370, guid: 16fea010ed3715c42890fba9b9ba2da9,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.593
+      value: 1.302
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698007264444444431, guid: 16fea010ed3715c42890fba9b9ba2da9,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.05054588
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698007264444444431, guid: 16fea010ed3715c42890fba9b9ba2da9,
+        type: 3}
+      propertyPath: m_Size.z
+      value: 0.070925616
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698007264444444431, guid: 16fea010ed3715c42890fba9b9ba2da9,
+        type: 3}
+      propertyPath: m_Center.x
+      value: 0.00080129824
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698007264444444431, guid: 16fea010ed3715c42890fba9b9ba2da9,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.06274687
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698007264444444431, guid: 16fea010ed3715c42890fba9b9ba2da9,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.021021128
       objectReference: {fileID: 0}
     - target: {fileID: 7349366975598952987, guid: 16fea010ed3715c42890fba9b9ba2da9,
         type: 3}
@@ -459,10 +489,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9037465103005386504, guid: 16fea010ed3715c42890fba9b9ba2da9,
         type: 3}
+      propertyPath: field of view
+      value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 9037465103005386504, guid: 16fea010ed3715c42890fba9b9ba2da9,
+        type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 1023
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4698007264444444431, guid: 16fea010ed3715c42890fba9b9ba2da9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7349366975598952987, guid: 16fea010ed3715c42890fba9b9ba2da9,

@@ -88,17 +88,17 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 35.503033
+      value: 6.6219416
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.6093044
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 70.0887
+      value: 96.652954
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
@@ -304,6 +304,8 @@ MonoBehaviour:
   shootingCooldown: 0.5
   sightDistance: 50
   activated: 0
+  hasRangedAttacks: 1
+  hasMeleeAttacks: 0
 --- !u!114 &2549876718132649329
 MonoBehaviour:
   m_ObjectHideFlags: 0
