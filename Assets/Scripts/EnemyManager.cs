@@ -40,6 +40,7 @@ public class EnemyManager : MonoBehaviour
 
     public void SetCombat()
     {
+        Debug.Log("C");
         inCombat = true;
         worldAudioManager.GetComponent<AudioManager>().PlayCombatMusic();
     }

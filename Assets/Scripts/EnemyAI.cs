@@ -51,6 +51,7 @@ public class PathfindingAI : MonoBehaviour
         {
             if(gameObject.GetComponent<Entity>().enemyManager.GetComponent<EnemyManager>().inCombat != true)
             {
+                Debug.Log("D");
                 gameObject.GetComponent<Entity>().enemyManager.GetComponent<EnemyManager>().SetCombat();
             }
             

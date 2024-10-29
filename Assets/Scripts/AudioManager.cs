@@ -10,12 +10,14 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        PlayAmbience();
+        ambience.Stop();
+        combatMusic.Stop();
+        ambience.Play();
     }
 
     public void PlayCombatMusic()
     {
-        StartCoroutine(AudioFadeOut.FadeOut(ambience, 0.8f));
+        StartCoroutine(AudioFadeOut.FadeOut(ambience, 0f));
         combatMusic.Play();
     }
 

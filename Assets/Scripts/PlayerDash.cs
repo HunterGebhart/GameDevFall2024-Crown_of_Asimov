@@ -16,14 +16,7 @@ public class DashMechanic : MonoBehaviour
     [SerializeField] float cooldownTime = 1.0f;
     [SerializeField] float rayDistance = 1.75f;
 
-    private float startingFOV; 
-
     private bool canDash = true;
-
-    void Start() 
-    {
-        startingFOV = playerCam.fieldOfView;
-    }
 
     void Update()
     {
