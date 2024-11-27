@@ -6,10 +6,14 @@ using UnityEngine.SceneManagement;
 public class NextLevelLoader : MonoBehaviour
 {
     [SerializeField] int sceneNumber;
-    [SerializeField] Light light;
+    [SerializeField] Light exitLight;
+
+    public Transition sceneTransition;
     
     void Awake()
     {
+        sceneTransition = GameObject.Find("LevelManager").GetComponent<Transition>();
+
         gameObject.SetActive(false);
     }
 
@@ -20,7 +24,8 @@ public class NextLevelLoader : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
 
-            SceneManager.LoadScene(sceneNumber);
+            sceneTransition.LoadLevel("Main_Menu");
+            //SceneManager.LoadScene(sceneNumber);
         }
     }
 
@@ -28,6 +33,6 @@ public class NextLevelLoader : MonoBehaviour
     {
         gameObject.SetActive(true);
 
-        light.transform.GetComponent<Light>().color = Color.green / 1.2f;
+        exitLight.transform.GetComponent<Light>().color = Color.green / 1.2f;
     }
 }
