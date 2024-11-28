@@ -14,6 +14,9 @@ public class OptionsMenu : MonoBehaviour
 
     public TMPro.TMP_Dropdown resolutionDropdown;
 
+    public Toggle fullscreenToggle;
+    public Toggle vsyncToggle;
+
     private GameObject graphicsMenuHolder;
     private GameObject optionsMenuHolder;
     private GameObject controlsMenuHolder;
@@ -32,6 +35,9 @@ public class OptionsMenu : MonoBehaviour
         controlsMenuHolder.SetActive(false);
         optionsMenuHolder.SetActive(true);
         audioMenuHolder.SetActive(false);
+
+        setFullscreenToggle();
+        setVsyncToggle();
     }
 
     void Start()
@@ -64,33 +70,31 @@ public class OptionsMenu : MonoBehaviour
 
     public void setMasterVolume(float volume)
     {
+        PlayerPrefs.SetFloat("MasterVolume", volume);
         audioMixer.SetFloat("MasterVolume", volume);
     }
 
     public void setMusicVolume(float volume)
     {
+        PlayerPrefs.SetFloat("MusicVolume", volume);
         audioMixer.SetFloat("MusicVolume", volume);
     }
 
     public void setSFXVolume(float volume)
     {
+        PlayerPrefs.SetFloat("SFXVolume", volume);
         audioMixer.SetFloat("SFXVolume", volume);
     }
 
     public void setAmbienceVolume(float volume)
     {
+        PlayerPrefs.SetFloat("AmbienceVolume", volume);
         audioMixer.SetFloat("AmbienceVolume", volume);
-    }
-
-    public void setMouseSensitivity(float sensitivity)
-    {
-
     }
 
     public void OnBackButton()
     {
         sceneTransition.LoadLevel("Main_Menu");
-        //SceneManager.LoadScene("Main_Menu");
     }
 
     public void setQuality(int qualityIndex)
@@ -100,7 +104,24 @@ public class OptionsMenu : MonoBehaviour
 
     public void setFullscreen(bool isFullscreen)
     {
+        if(isFullscreen) PlayerPrefs.SetInt("isFullscreen", 1);
+        else PlayerPrefs.SetInt("isFullscreen", 0);
         Screen.fullScreen = isFullscreen;
+    }
+
+    public void setVsync(bool isVsync)
+    {
+        if(isVsync) 
+        {
+            PlayerPrefs.SetInt("isVsync", 1);
+            QualitySettings.vSyncCount = 1;
+        }
+        else 
+        {
+            PlayerPrefs.SetInt("isVsync", 0);
+            QualitySettings.vSyncCount = 0;
+        }
+        
     }
 
     public void setResolution(int resolutionIndex)
@@ -139,5 +160,43 @@ public class OptionsMenu : MonoBehaviour
         controlsMenuHolder.SetActive(false);
         optionsMenuHolder.SetActive(false);
         audioMenuHolder.SetActive(true);
+    }
+
+    public void setFullscreenToggle()
+    {
+        if(PlayerPrefs.GetInt("isFullscreen") == 1)
+        {
+            int isFullscreen = PlayerPrefs.GetInt("isFullscreen");
+            if(isFullscreen == 1) fullscreenToggle.isOn = true;
+            else fullscreenToggle.isOn = false;
+        }
+        else
+        {
+            fullscreenToggle.isOn = false;
+        }
+    }
+
+    public void setVsyncToggle()
+    {
+        if(PlayerPrefs.GetInt("isVsync") == 1)
+        {
+            int vsync = PlayerPrefs.GetInt("isVsync");
+            if(vsync == 1) vsyncToggle.isOn = true;
+            else vsyncToggle.isOn = false;
+        }
+        else
+        {
+            vsyncToggle.isOn = false;
+        }
+    }
+
+    public void setMouseSensitivity(float sensitivity)
+    {
+        PlayerPrefs.SetFloat("MouseSensitivity", sensitivity);
+    }
+
+    public void setFieldOfView(float FOV)
+    {
+        PlayerPrefs.SetFloat("FieldOfView", FOV);
     }
 }

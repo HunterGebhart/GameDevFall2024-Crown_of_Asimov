@@ -13,6 +13,12 @@ public class PlayerCamera : MonoBehaviour
 
     private float xRotation = 0f;
 
+    void Awake()
+    {
+        mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity");
+        transform.gameObject.GetComponent<Camera>().fieldOfView = PlayerPrefs.GetFloat("FieldOfView");
+    }
+
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
