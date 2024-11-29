@@ -8,7 +8,7 @@ public class NextLevelLoader : MonoBehaviour
     [SerializeField] int sceneNumber;
     [SerializeField] Light exitLight;
 
-    public Transition sceneTransition;
+    private Transition sceneTransition;
     
     void Awake()
     {

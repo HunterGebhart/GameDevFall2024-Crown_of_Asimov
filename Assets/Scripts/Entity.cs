@@ -11,6 +11,11 @@ public class Entity : MonoBehaviour
     [Header("Entity Attributes")]
     [SerializeField] private float startingHealth;
 
+    [SerializeField] private AudioSource damagedAudio;
+    [SerializeField] private AudioSource destroyedAudio;
+    //[SerializeField] private AudioClip damagedAudio;
+    //[SerializeField] private AudioClip destroyedAudio;
+
     private float health;
 
     public float Health
@@ -25,9 +30,15 @@ public class Entity : MonoBehaviour
 
             if(health <= 0f)
             {
+                destroyedAudio.Play();
                 //revolver.GetComponent<PlayerGun>().CurrAmmo += (int)startingHealth;
                 enemyManager.GetComponent<EnemyManager>().NumEnemies -= 1;
-                Destroy(gameObject);
+                
+                Destroy(gameObject, .6f);
+            }
+            else if (health < startingHealth)
+            {
+                damagedAudio.Play();
             }
         }
     }

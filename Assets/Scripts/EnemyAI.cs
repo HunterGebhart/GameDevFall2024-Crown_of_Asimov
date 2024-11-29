@@ -29,6 +29,8 @@ public class PathfindingAI : MonoBehaviour
     [SerializeField] bool hasRangedAttacks = false;
     [SerializeField] bool hasMeleeAttacks = false;
 
+    [SerializeField] private AudioSource bulletAudio;
+
     private float startTime = 0;
     
     void Start()
@@ -55,7 +57,6 @@ public class PathfindingAI : MonoBehaviour
         {
             if(gameObject.GetComponent<Entity>().enemyManager.GetComponent<EnemyManager>().inCombat != true)
             {
-                Debug.Log("D");
                 gameObject.GetComponent<Entity>().enemyManager.GetComponent<EnemyManager>().SetCombat();
             }
             
@@ -96,6 +97,7 @@ public class PathfindingAI : MonoBehaviour
         {
             if(hasRangedAttacks)
             {
+                bulletAudio.Play();
                 enemyProjectile.Shoot();
                 startTime = 0;
             }
