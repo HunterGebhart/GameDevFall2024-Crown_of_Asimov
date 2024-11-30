@@ -16,7 +16,15 @@ public class PlayerCamera : MonoBehaviour
     void Awake()
     {
         mouseSensitivity = PlayerPrefs.GetFloat("MouseSensitivity");
-        transform.gameObject.GetComponent<Camera>().fieldOfView = PlayerPrefs.GetFloat("FieldOfView");
+        
+        if(PlayerPrefs.GetFloat("FieldOfView") < 1f)
+        {
+            transform.gameObject.GetComponent<Camera>().fieldOfView = 75f;
+        }
+        else
+        {
+            transform.gameObject.GetComponent<Camera>().fieldOfView = PlayerPrefs.GetFloat("FieldOfView");
+        }
     }
 
     void Start()

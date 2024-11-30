@@ -6,12 +6,19 @@ public class SetActive : MonoBehaviour
 {
     [SerializeField] public GameObject setActiveHolder;
 
+    [SerializeField] public bool hasAnimation;
+
     private bool inCollider;
+    private bool canPlayAnimation;
+
+    private TriggerAnimation triggerAnimation;
 
     // Start is called before the first frame update
     void Start()
     {
         inCollider = false;
+        canPlayAnimation = true;
+        triggerAnimation = GetComponent<TriggerAnimation>();
     }
 
     // Update is called once per frame
@@ -19,8 +26,13 @@ public class SetActive : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.E) && inCollider)
         {
-            Debug.Log("E key Detected!");
             setActiveHolder.SetActive(true);
+            if(hasAnimation && canPlayAnimation)
+            {
+                Debug.Log("Playing Animation...");
+                canPlayAnimation = false;
+                triggerAnimation.PlayAnimation();
+            }
         }
     }
 

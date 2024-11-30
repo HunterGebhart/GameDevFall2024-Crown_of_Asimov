@@ -85,4 +85,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneNumber: 0
-  light: {fileID: 0}
+  exitLight: {fileID: 0}

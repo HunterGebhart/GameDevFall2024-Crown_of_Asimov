@@ -2473,7 +2473,7 @@ PrefabInstance:
     - target: {fileID: 8335690742063161039, guid: 73dc6f08f888b5e46a4a8a0b19a9f399,
         type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: setFullscreen
+      value: setVsync
       objectReference: {fileID: 0}
     - target: {fileID: 8335690742063161039, guid: 73dc6f08f888b5e46a4a8a0b19a9f399,
         type: 3}
@@ -3146,7 +3146,7 @@ AudioSource:
   m_GameObject: {fileID: 1065955831}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -5886676041986874605, guid: a19349a0b86543748b5ea2b07831c80e,
+  OutputAudioMixerGroup: {fileID: 3183843157638456153, guid: a19349a0b86543748b5ea2b07831c80e,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: c4a27338b5d16b544ab2c29e1998cd43, type: 3}
   m_PlayOnAwake: 1
@@ -6586,6 +6586,11 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2122314692}
+    - target: {fileID: 3975561907091364516, guid: 6255add37f760c4458ca339a3178afea,
+        type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: setMasterVolume
+      objectReference: {fileID: 0}
     - target: {fileID: 5143199320604412052, guid: 6255add37f760c4458ca339a3178afea,
         type: 3}
       propertyPath: m_Name
