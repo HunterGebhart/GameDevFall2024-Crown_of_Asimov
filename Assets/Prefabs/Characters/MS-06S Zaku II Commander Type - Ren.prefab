@@ -411,10 +411,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   headLocation: {fileID: 5649022643513089698}
-  activationDistance: 50
-  attackDistance: 35
+  activationDistance: 60
+  attackDistance: 60
   shootingCooldown: 0.5
-  sightDistance: 50
+  sightDistance: 60
   activated: 0
   hasRangedAttacks: 1
   hasMeleeAttacks: 0
