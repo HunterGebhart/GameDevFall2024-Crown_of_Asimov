@@ -10,6 +10,9 @@ public class PlayerGun : MonoBehaviour
 
     [Header("Sound Effects")]
     [SerializeField] AudioClip gunshot;
+    [SerializeField] AudioSource noAmmoSound;
+    [SerializeField] AudioSource swishSound;
+    [SerializeField] AudioSource reloadSound;
     
     private AudioSource revolverSFX;
 
@@ -30,19 +33,6 @@ public class PlayerGun : MonoBehaviour
 
     private int currAmmo;
 
-    /*public int CurrAmmo
-    {
-        get
-        {
-            return currAmmo;
-        }
-        set
-        {
-            currAmmo = value;
-            Debug.Log(currAmmo);
-        }
-    }*/
-
     void Start()
     {
         currentCooldown = fireCooldown;
@@ -55,13 +45,15 @@ public class PlayerGun : MonoBehaviour
 
     void Update()
     {
+
         if(automaticFiring)
         {
             if(Input.GetMouseButton(0))
-            {
-                if(currentCooldown <= 0f && currAmmo > 0)
                 {
-                    Shoot();
+                if(currentCooldown <= 0f)
+                {
+                    if(currAmmo <= 0) noAmmoSound.Play();
+                    else Shoot();
                 }
             }
         }
@@ -69,9 +61,10 @@ public class PlayerGun : MonoBehaviour
         {
             if(Input.GetMouseButtonDown(0))
             {
-                if(currentCooldown <= 0f && currAmmo > 0)
+                if(currentCooldown <= 0f)
                 {
-                    Shoot();
+                    if(currAmmo <= 0) noAmmoSound.Play();
+                    else Shoot();
                 }
             }
         }
@@ -121,6 +114,7 @@ public class PlayerGun : MonoBehaviour
     {
         if(revolverAnimation.revolverAnimator.GetCurrentAnimatorStateInfo(0).IsName("IdleRevolver"))
         {
+            StartCoroutine(playReloadSFX());
             revolverAnimation.ReloadRevolver();
 
             currAmmo = maxAmmo;
@@ -158,5 +152,14 @@ public class PlayerGun : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    IEnumerator playReloadSFX()
+    {
+        swishSound.Play();
+
+        yield return new WaitForSeconds(.45f);
+
+        reloadSound.Play();
     }
 }

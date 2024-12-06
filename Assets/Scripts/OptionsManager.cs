@@ -9,9 +9,12 @@ public class OptionsManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        setFullscreen();
-    }
+        setDefaultFullscreen();
+        setDefaultMasterVolume();
 
+        //setFullscreen();
+    }
+/*
     public void setFullscreen()
     {
         if(PlayerPrefs.GetInt("isFullscreen") == 1)
@@ -38,5 +41,15 @@ public class OptionsManager : MonoBehaviour
         {
             QualitySettings.vSyncCount = 0;
         }
+    }*/
+
+    public void setDefaultFullscreen()
+    {
+        PlayerPrefs.SetInt("isFullscreen", 1);
+    }
+
+    public void setDefaultMasterVolume()
+    {
+        PlayerPrefs.SetFloat("MasterVolume", -5f);
     }
 }

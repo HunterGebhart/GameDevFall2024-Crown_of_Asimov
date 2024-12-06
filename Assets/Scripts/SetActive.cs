@@ -13,6 +13,9 @@ public class SetActive : MonoBehaviour
 
     private TriggerAnimation triggerAnimation;
 
+    [SerializeField] AudioSource doorOpenSound;
+    [SerializeField] AudioSource doorCreakingSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +35,7 @@ public class SetActive : MonoBehaviour
                 Debug.Log("Playing Animation...");
                 canPlayAnimation = false;
                 triggerAnimation.PlayAnimation();
+                StartCoroutine(playDoorAudio());
             }
         }
     }
@@ -40,7 +44,6 @@ public class SetActive : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            Debug.Log("Player Found!");
             inCollider = true;
         }
     }
@@ -51,5 +54,14 @@ public class SetActive : MonoBehaviour
         {
             inCollider = false;
         }
+    }
+
+    IEnumerator playDoorAudio()
+    {
+        doorOpenSound.Play();
+        doorCreakingSound.Play();
+        yield return new WaitForSeconds(3.2f);
+        doorCreakingSound.Stop();
+        doorOpenSound.Play();
     }
 }

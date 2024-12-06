@@ -17,6 +17,8 @@ public class OptionsMenu : MonoBehaviour
     public Toggle fullscreenToggle;
     public Toggle vsyncToggle;
 
+    public Slider masterVolumeSlider;
+
     private GameObject graphicsMenuHolder;
     private GameObject optionsMenuHolder;
     private GameObject controlsMenuHolder;
@@ -38,6 +40,7 @@ public class OptionsMenu : MonoBehaviour
 
         setFullscreenToggle();
         setVsyncToggle();
+        setMasterVolumeSlider();
     }
 
     void Start()
@@ -188,6 +191,11 @@ public class OptionsMenu : MonoBehaviour
         {
             vsyncToggle.isOn = false;
         }
+    }
+
+    public void setMasterVolumeSlider()
+    {
+        masterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume");
     }
 
     public void setMouseSensitivity(float sensitivity)

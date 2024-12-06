@@ -35,7 +35,7 @@ public class EnemyManager : MonoBehaviour
     void action()
     {
         worldAudioManager.GetComponent<AudioManager>().PlayAmbience();
-        levelCollider.GetComponent<NextLevelLoader>().makeActive();
+        levelCollider.SetActive(true);
     }
 
     public void SetCombat()

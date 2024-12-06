@@ -8,15 +8,18 @@ public class DashMechanic : MonoBehaviour
     [SerializeField] Camera playerCam;
     [SerializeField] LayerMask wallMask;
 
-    private RaycastHit hit;
-
     [Header("Dash Attributes")]
     [SerializeField] float dashSpeed = 1f;
     [SerializeField] float dashTime = 0.25f;
     [SerializeField] float cooldownTime = 1.0f;
     [SerializeField] float rayDistance = 1.75f;
 
+    [Header("Audio Sources")]
+    [SerializeField] AudioSource dashSound;
+
     private bool canDash = true;
+
+    private RaycastHit hit;
 
     void Update()
     {
@@ -65,6 +68,8 @@ public class DashMechanic : MonoBehaviour
     //Dash Coroutine
     IEnumerator Dash(int directionCode)
     {
+        dashSound.Play();
+        
         canDash = false;
 
         //Dash left

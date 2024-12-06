@@ -18,13 +18,26 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float gravity = -9.81f;
     [SerializeField] float jumpHeight = 3f;
 
+    [Header("Audio Sources")]
+    [SerializeField] AudioSource jumpSound;
+    [SerializeField] AudioSource jumpLandingSound;
+
     private Vector3 velocity;
 
     private bool isWalking;
+    private bool midJump = true;
 
     //Update is called every frame, and since movement does utilize the physics engine it does not use FixedUpdate()
     void Update()
     {
+        if(playerController.isGrounded && midJump)
+        {
+            Debug.Log("Grounded!");
+            jumpLandingSound.Play();
+            midJump = false;
+        }
+        if(!playerController.isGrounded) midJump = true;
+
         //If player holds down the C key, they will walk instead of run, run is default player speed
         isWalking = Input.GetKey(KeyCode.C);
 
@@ -47,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
         //If player presses the Jump button (Space in most cases) then set velocity to simulate a jump 
         if(Input.GetButton("Jump") && playerController.isGrounded)
         {
+            jumpSound.Play();
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
         }
 
