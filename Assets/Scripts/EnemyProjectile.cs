@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * A class that defines the behavior of the enemy projectiles
+ */ 
 public class EnemyProjectile : MonoBehaviour
 {
     [Header("Object References")]

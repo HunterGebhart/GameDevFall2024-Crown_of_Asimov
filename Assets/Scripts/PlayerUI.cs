@@ -3,20 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
+/*
+ * A class that defines the behavior for the UI canvas the player sees as HUD
+ */
 public class PlayerUI : MonoBehaviour
 {
     [SerializeField] GameObject bullet1;
     [SerializeField] GameObject bullet2;
     [SerializeField] GameObject bullet3;
     
-    // Start is called before the first frame update
-    void Start()
+    //Set all bullets images to active at game-start
+    private void Start()
     {
         bullet1.SetActive(true);
         bullet2.SetActive(true);
         bullet3.SetActive(true);
     }
 
+    //Set which bullet images are visible based on the current ammo of the player gun
     public void SetBulletVisibility(int currAmmo)
     {
         switch(currAmmo)

@@ -5,16 +5,14 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     [Header("Object References")]
-    [SerializeField] public GameObject enemyManager;
     [SerializeField] GameObject revolver;
+    [SerializeField] EnemyManager enemyManager;
 
     [Header("Entity Attributes")]
     [SerializeField] private float startingHealth;
 
     [SerializeField] private AudioSource damagedAudio;
     [SerializeField] private AudioSource destroyedAudio;
-    //[SerializeField] private AudioClip damagedAudio;
-    //[SerializeField] private AudioClip destroyedAudio;
 
     private float health;
 
@@ -24,18 +22,22 @@ public class Entity : MonoBehaviour
         {
             return health;
         }
+
         set
         {
             health = value;
 
             if(health <= 0f)
             {
+                enemyManager.SetCombat(false);
+
                 destroyedAudio.Play();
-                //revolver.GetComponent<PlayerGun>().CurrAmmo += (int)startingHealth;
-                enemyManager.GetComponent<EnemyManager>().NumEnemies -= 1;
+
+                enemyManager.NumActivatedEnemies -= 1;
                 
                 Destroy(gameObject, .6f);
             }
+
             else if (health < startingHealth)
             {
                 damagedAudio.Play();

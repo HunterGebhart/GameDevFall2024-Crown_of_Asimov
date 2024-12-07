@@ -5,7 +5,6 @@ using UnityEngine;
 public class DashMechanic : MonoBehaviour
 {
     [Header("Object References")]
-    [SerializeField] Camera playerCam;
     [SerializeField] LayerMask wallMask;
 
     [Header("Dash Attributes")]

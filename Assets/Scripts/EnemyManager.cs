@@ -3,45 +3,67 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/* 
+ * A class that defines the enemy manager, which keeps track of when enemies are activated
+ * for the purposes of music 
+ */
 public class EnemyManager : MonoBehaviour
 {
     [Header("Object References")]
-    [SerializeField] GameObject levelCollider;
-    [SerializeField] GameObject worldAudioManager;
-
-    [Header("Enemy Management")]
-    [SerializeField] int numEnemies;
+    [SerializeField] AudioManager worldAudioManager;
 
     [Header("Booleans")]
-    [SerializeField] public bool inCombat = false;
+    [SerializeField] public static bool inCombat = false;
 
-    public int NumEnemies
+    private int numActivatedEnemies;
+
+    //A getter and setter to modify the number of how many number of enemies are currently activated
+    public int NumActivatedEnemies
     {
+        //Return the number of currently activated enemies
         get
         {
-            return numEnemies;
+            return numActivatedEnemies;
         }
+
+        //Modify the value of numActivatedEnemies, if no active enemies, call outOfCombat
         set
         {
-            numEnemies = value;
+            numActivatedEnemies = value;
 
-            if(numEnemies <= 0f)
+            if(numActivatedEnemies <= 0)
             {
-                action();
+                outOfCombat();
             }
         }
     }
 
-    void action()
+    //Start the game with zero activated enemies, and get components
+    private void Start()
     {
-        worldAudioManager.GetComponent<AudioManager>().PlayAmbience();
-        levelCollider.SetActive(true);
+        numActivatedEnemies = 0;
+        worldAudioManager = worldAudioManager.GetComponent<AudioManager>();
     }
 
-    public void SetCombat()
+    //If the player isn't in combat and combat music isn't playing, then play combat
+    private void Update()
     {
-        Debug.Log("C");
-        inCombat = true;
-        worldAudioManager.GetComponent<AudioManager>().PlayCombatMusic();
+        if(inCombat && !worldAudioManager.combatMusic.isPlaying)
+        {
+            worldAudioManager.PlayCombatMusic();
+        }
+    }
+
+    //If there are no active enemies, set the flag to false and play ambience if it isn't already playing
+    private void outOfCombat()
+    {
+        inCombat = false;
+        if(!worldAudioManager.ambience.isPlaying) worldAudioManager.PlayAmbience();
+    }
+
+    //Modify the inCombat boolean
+    public void SetCombat(bool value)
+    {
+        inCombat = value;
     }
 }

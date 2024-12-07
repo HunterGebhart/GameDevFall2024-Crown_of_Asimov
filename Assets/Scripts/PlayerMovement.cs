@@ -30,9 +30,9 @@ public class PlayerMovement : MonoBehaviour
     //Update is called every frame, and since movement does utilize the physics engine it does not use FixedUpdate()
     void Update()
     {
+        //If player is mid air, play a landing sound effect when the player lands
         if(playerController.isGrounded && midJump)
         {
-            Debug.Log("Grounded!");
             jumpLandingSound.Play();
             midJump = false;
         }

@@ -182,22 +182,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -63.2999
+      value: 133.76564
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0000009536743
+      value: 10.647762
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 473.71307
+      value: 147.50565
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.0000006556511
+      value: 0.0000011175872
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
@@ -207,7 +207,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
@@ -222,7 +222,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: -180
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2bd8b29cb891b9d48889dfa2403e518b,
         type: 3}
@@ -347,11 +347,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fcb8f1157127e34b8e15dc506adbe77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyManager: {fileID: 0}
   revolver: {fileID: 0}
   startingHealth: 2
   damagedAudio: {fileID: 7807362909988950798}
   destroyedAudio: {fileID: 6278459987571620575}
+  enemyManager: {fileID: 0}
 --- !u!136 &-191973718841907727
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -419,6 +419,7 @@ MonoBehaviour:
   hasRangedAttacks: 1
   hasMeleeAttacks: 0
   bulletAudio: {fileID: 5550404933009310910}
+  enemyManager: {fileID: 0}
 --- !u!114 &2549876718132649329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -435,9 +436,9 @@ MonoBehaviour:
   attackPoint: {fileID: 2571108519641847490}
   headLocation: {fileID: 5649022643513089698}
   player: {fileID: 0}
-  shootForce: 25
+  shootForce: 30
   upwardForce: 0
-  spread: 2
+  spread: 5
   bulletDespawnTime: 10
 --- !u!82 &7807362909988950798
 AudioSource:

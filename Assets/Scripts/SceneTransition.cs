@@ -3,27 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/*
+ * A class that defines the scene transition
+ */
 public class Transition : MonoBehaviour
 {
-    public Animator animator;
-    public float transitionDelayTime = 1.0f;
+    [Header("Animators")]
+    [SerializeField] Animator animator;
 
+    [Header("Attributes")]
+    [SerializeField] float transitionDelayTime = 1.0f;
+
+    //Find game objects
     void Awake()
     {
         animator = GameObject.Find("Transition").GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    //Start the coroutine with the scene name
     public void LoadLevel(string scene)
     {
         StartCoroutine(DelayLoadLevel(scene));
     }
 
+    //Play the transition animation over time then change the scene
     IEnumerator DelayLoadLevel(string scene)
     {
         animator.SetTrigger("TriggerTransition");

@@ -10,11 +10,11 @@ public class OptionsManager : MonoBehaviour
     void Awake()
     {
         setDefaultFullscreen();
-        setDefaultMasterVolume();
 
-        //setFullscreen();
+        setFullscreen();
+        setVsync();
     }
-/*
+
     public void setFullscreen()
     {
         if(PlayerPrefs.GetInt("isFullscreen") == 1)
@@ -41,7 +41,7 @@ public class OptionsManager : MonoBehaviour
         {
             QualitySettings.vSyncCount = 0;
         }
-    }*/
+    }
 
     public void setDefaultFullscreen()
     {

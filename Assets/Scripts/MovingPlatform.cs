@@ -3,40 +3,44 @@ using System.Collections.Generic;
 using UnityEditor.Rendering;
 using UnityEngine;
 
+/* 
+ * A class that defines the behavior for moving platforms
+ */
 public class MovingPlatform : MonoBehaviour
 {
-    public Transform targetA;
-    public Transform targetB;
-    private Transform currTarget;
-    public string pointA_Name;
-    public string pointB_Name;
-    public float speed;
+    [Header("Locations")]
+    [SerializeField] Transform targetA;
+    [SerializeField] Transform targetB;
+    [SerializeField] Transform currTarget;
 
-    // Start is called before the first frame update
+    [Header("Location Names")]
+    [SerializeField] string pointA_Name;
+    [SerializeField] string pointB_Name;
+
+    [Header("Attributes")]
+    [SerializeField] float speed;
+
+    //Fine game objects and set the current target for the platform
     void Start()
     {
         targetA = GameObject.Find(pointA_Name).transform;
         targetB = GameObject.Find(pointB_Name).transform;
-        currTarget = targetB;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        currTarget = targetB;
     }
 
     void FixedUpdate()
     {
-        float distanceToA = Vector3.Distance(transform.position, targetA.position);
-        float distanceToB = Vector3.Distance(transform.position, targetB.position);
+        //Find the distance to the target
+        float distanceToA = Vector3.Distance(transform.position, targetB.position);
 
-        if(distanceToB == 0f)
+        //If the destination has been reached, destroy the platform
+        if(distanceToA == 0f)
         {
-            Debug.Log("Destination Reached!");
             Destroy(gameObject);
         }
 
+        //Move the platform toward the target location
         transform.position = Vector3.MoveTowards(transform.position, currTarget.position, speed * Time.deltaTime);
     }
 }

@@ -2,24 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/* 
+ * A class that defines the behavior for an object that periodically spawns moving platforms
+ */
 public class PlatformSpawner : MonoBehaviour
 {
-    public GameObject platform;
-    public float spawnRate;
-    public Transform spawnPoint;
+    [Header("Object to Spawn")]
+    [SerializeField] GameObject platform;
 
-    // Start is called before the first frame update
+    [Header("Spawn Location")]
+    [SerializeField] Transform spawnPoint;
+
+    [Header("Attributes")]
+    [SerializeField] float spawnRate;
+
+    //Start the coroutine to spawn platforms over intervals
     void Start()
     {
         StartCoroutine(SpawnPlatforms());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //Spawn platforms over time and wait for a certain amount of time
     IEnumerator SpawnPlatforms()
     {
         while(true)

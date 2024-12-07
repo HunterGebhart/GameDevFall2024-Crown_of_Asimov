@@ -8,6 +8,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7783380427799292581, guid: 32b8d3f818d051043a5a9e5f1a927b6f,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7783380427799292581, guid: 32b8d3f818d051043a5a9e5f1a927b6f,
+        type: 3}
+      propertyPath: m_ImplicitTensor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7783380427799292581, guid: 32b8d3f818d051043a5a9e5f1a927b6f,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -191973718841907727, guid: 32b8d3f818d051043a5a9e5f1a927b6f,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -191973718841907727, guid: 32b8d3f818d051043a5a9e5f1a927b6f,
+        type: 3}
+      propertyPath: m_ProvidesContacts
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 841763676667395960, guid: 32b8d3f818d051043a5a9e5f1a927b6f,
         type: 3}
       propertyPath: activated

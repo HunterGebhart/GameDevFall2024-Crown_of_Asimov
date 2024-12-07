@@ -4,19 +4,24 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
+/*
+ * A class that defines the behavior of the main menu UI
+ */
 public class MainMenu : MonoBehaviour
 {
-    public Transition sceneTransition;
+    [Header("Transition Object")]
+    [SerializeField] Transition sceneTransition;
 
+    //Find the level manager object
     void Awake()
     {
         sceneTransition = GameObject.Find("LevelManager").GetComponent<Transition>();
     }
-    //Play Level 1
+
+    //Change scene to level_1
     public void OnPlayButton()
     {
         sceneTransition.LoadLevel("Level_1");
-        //SceneManager.LoadScene("Level_2");
     }
 
     //Quit the game
@@ -25,9 +30,15 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    //Change the scene to the options menu
     public void OnOptionsButtion()
     {
         sceneTransition.LoadLevel("Options");
-        //SceneManager.LoadScene("Options");
+    }
+
+    //Go back to the main menu (in case of the win or lose screen since those canvases use this script)
+    public void OnMenuButton()
+    {
+        sceneTransition.LoadLevel("Main_Menu");
     }
 }

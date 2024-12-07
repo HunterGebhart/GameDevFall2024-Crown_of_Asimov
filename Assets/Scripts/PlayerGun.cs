@@ -13,12 +13,6 @@ public class PlayerGun : MonoBehaviour
     [SerializeField] AudioSource noAmmoSound;
     [SerializeField] AudioSource swishSound;
     [SerializeField] AudioSource reloadSound;
-    
-    private AudioSource revolverSFX;
-
-    private RevolverAnimation revolverAnimation;
-
-    private PlayerUI playerUI;
 
     [Header("Gun Attributes")]
     [SerializeField] float fireCooldown;
@@ -28,6 +22,12 @@ public class PlayerGun : MonoBehaviour
     [SerializeField] float enemyDamagedTimer;
     [SerializeField] int maxAmmo = 3;
     [SerializeField] bool automaticFiring;
+
+    private AudioSource revolverSFX;
+
+    private RevolverAnimation revolverAnimation;
+
+    private PlayerUI playerUI;
 
     private float currentCooldown;
 
@@ -105,8 +105,6 @@ public class PlayerGun : MonoBehaviour
             currentCooldown = fireCooldown;
 
             currAmmo--;
-
-            //Debug.Log(currAmmo);
         }
     }
 
@@ -118,8 +116,6 @@ public class PlayerGun : MonoBehaviour
             revolverAnimation.ReloadRevolver();
 
             currAmmo = maxAmmo;
-
-            //Debug.Log(currAmmo);
         }
     }
 

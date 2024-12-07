@@ -7,6 +7,7 @@ TagManager:
   - Enemy
   - Gundam
   - TestObject
+  - Projectile
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Camera
   - Weapon
   - Platform
-  - 
+  - Volume
   - 
   - 
   - 
